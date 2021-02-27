@@ -14,7 +14,7 @@ function clickLink(event) {
   document.cookie = `${storeName} = ${clickCounts}; samesite=strict`
   console.log(clickCounts)
 
-  window.open(url, '_blank')
+  window.open(url, '_blank', 'noopener,noreferrer')
   window.location.href = specifiedLink
 }
 
