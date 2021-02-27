@@ -14,8 +14,10 @@ function clickLink(event) {
 }
 
 function auxClickLink(event) {
-  if (event.button === 1) setCounts(storeName) // If mouse wheel button clicked
-  window.location.href = specifiedLink
+  if (event.button === 1) { // If mouse wheel button clicked
+    setCounts(storeName)
+    window.location.href = specifiedLink
+  }
 }
 
 function setCounts(storeName) {
