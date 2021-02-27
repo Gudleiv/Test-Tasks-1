@@ -20,6 +20,7 @@
         <v-layout wrap align-center>
           <v-flex xs12 sm6>
             <v-select
+              v-model="driverCatValue"
               :items="items"
               label="Водительские категории"
               multiple
@@ -42,6 +43,24 @@
         return {
           items: ['A', 'B', 'C', 'D', 'E'],
           driverCat: '12211'
+        }
+      },
+      computed: {
+        driverCatValue: {
+          get() {
+            return this.driverCat
+              .split('')
+              .map((el, idx) => el === '2' ? this.items[idx] : '')
+              .filter(el => el)            
+          },
+          set(value) {
+            const selected = [...value].sort()
+            const result = this.items
+              .map((el, idx) => selected.includes(el) ? '2' : '1')
+              .join('')
+            
+            this.driverCat = result
+          }
         }
       }
     })
